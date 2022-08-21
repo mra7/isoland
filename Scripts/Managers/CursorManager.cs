@@ -8,7 +8,7 @@ public class CursorManager : Singleton<CursorManager>
     private bool canClick = true;
     private void Update()
     {
-        mousePosition = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0));
+        GetMousePosition();
         if (canClick && Input.GetMouseButtonDown(0))
         {
             if (GetObjAtMoustPosition() != null)
@@ -22,20 +22,27 @@ public class CursorManager : Singleton<CursorManager>
             
         }
     }
+    // 获取鼠标位置
+    private void GetMousePosition()
+    {
+        mousePosition = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0));
+    }
+    // 鼠标点击事件
     private void OnClicked(GameObject clickedObj)
     {
         if (clickedObj != null)
         {
-
             switch (clickedObj.tag)
             {
                 case "Teleport":
                     EventCenter.Boardcast<int>(EventType.ClickTeleport, clickedObj.GetComponent<Teleport>().id);
                     break;
+                case "Item":
+                    EventCenter.Boardcast<string>(EventType.ClickItem, clickedObj.GetComponent<ItemBase>().itemId);
+                    break;
             }
         }
             
-        //switch
     }
     private Collider2D GetObjAtMoustPosition()
     {

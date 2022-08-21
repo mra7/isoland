@@ -1,0 +1,13 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\Scripts",
+    "\\Scripts\\Entities",
+    "\\Scripts\\Entities\\Transition",
+    "\\Scripts\\Entities\\UI",
+    "\\Scripts\\FreamWork",
+    "\\Scripts\\FreamWork\\Managers"
+  ],
+  "SelectedNode": "\\Scripts\\FreamWork\\Managers\\TransitionManager.cs",
+  "PreviewInSolutionExplorer": false
+}

@@ -1,7 +1,14 @@
 public enum EventType
 { 
+    Test,
     MouseClicked,
     ClickTeleport,
+    ClickItem,
     ScenceChange,
-    SceneChangeUIFade
+    SceneChangeUIFade,
+    Audio,
+    PlaySound,
+    StopSound,
+    PauseSound,
+    SetVolum
 }

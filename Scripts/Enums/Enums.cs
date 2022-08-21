@@ -1,8 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public class Enums : MonoBehaviour
-{
-    public enum EventSystemStatus{enabled, disabled}
-}
+public enum EventSystemStatus {enabled, disabled}
+public enum ItemName {Key, Ticket}
+public enum AudioSourceType { BackGround, SFX }
