@@ -15,7 +15,7 @@ namespace isoLand.Manager
         [SerializeField] private AudioClip[] bgMusicClips;
         [Header("Ãÿ–ß“Ù¿÷")]
         [SerializeField] private AudioClip[] SFXMusicClips;
-        void Awake()
+        public void Awake()
         {
             EventCenter.AddListener<AudioSourceType, string, bool, float>(MyEventType.PlaySound, PlaySound);
             EventCenter.AddListener<AudioSourceType>(MyEventType.StopSound, StopSound);
