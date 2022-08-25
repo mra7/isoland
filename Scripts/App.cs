@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,7 +6,7 @@ using isoLand.Manager;
 using isoLand.Models;
 using isoLand.Facades;
 using isoLand.Controller;
-using System;
+using EventSystem;
 
 namespace isoLand.Main 
 {
@@ -14,7 +15,6 @@ namespace isoLand.Main
         bool isInit;
         MainController mainController;
         CursorController cursorController;
-
         void Awake()
         {
 
@@ -31,22 +31,9 @@ namespace isoLand.Main
             //audioController.Ctor();
             mainController = new MainController();
             mainController.Ctor();
-            // 加载Assets
-            //Action action = async () => {
-            //    try
-            //    {
-            //        await mainController.Init();
-            //        isInit = true;
-            //    }
-            //    catch
-            //    {
-            //        Debug.LogError("加载资源出错啦");
-            //    }
-
-            //};
-            //action.Invoke();
+            // 通过maincontroller加载Assets
+            EventCenter.Boardcast<string>(MyEventType.SceneChangeUIFade, "fadeIn");
         }
-
         void Update()
         {
             //if (!isInit) return;

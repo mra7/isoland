@@ -9,8 +9,8 @@ namespace isoLand.Assets
 {
     public class GameAssets
     {
-        Dictionary<string, GameObject> uiAssets;
-        Dictionary<string, GameObject> audioAssets;
+        public Dictionary<string, GameObject> uiAssets;
+        public Dictionary<string, GameObject> audioAssets;
         public GameAssets()
         {
             uiAssets = new Dictionary<string, GameObject>();

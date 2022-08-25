@@ -133,7 +133,7 @@ GameObject:
   m_Component:
   - component: {fileID: 183340019}
   m_Layer: 0
-  m_Name: Managers
+  m_Name: Controllers
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -393,7 +393,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1143222120}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 84b0a089e7c62574a8ef8f74503fe2f2, type: 3}
+  m_Script: {fileID: 11500000, guid: 75b50aa36f502f64f9ad23b57de10006, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1209853924
@@ -501,6 +501,10 @@ PrefabInstance:
     - target: {fileID: 6537868664493974665, guid: 6776b7766757ffb4fb4fb55b277863ec, type: 3}
       propertyPath: m_Name
       value: FadeCanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 6537868664493974665, guid: 6776b7766757ffb4fb4fb55b277863ec, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6537868664493974669, guid: 6776b7766757ffb4fb4fb55b277863ec, type: 3}
       propertyPath: m_Pivot.x
