@@ -2,22 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using EventSystem;
 
-public class TransitionManager : Singleton<TransitionManager>
+public class TransitionManager :MonoBehaviour
 {
-    protected  override void Awake()
+    void Awake()
     {
-        base.Awake();
-        EventCenter.AddListener<string, string>(EventType.ScenceChange, ChangeScene);
-    }
-    protected override void OnDestroy()
-    {
-        base.OnDestroy();
-        EventCenter.RemoveListener<string, string>(EventType.ScenceChange, ChangeScene);
+        EventCenter.AddListener<string, string>(MyEventType.ScenceChange, ChangeScene);
     }
     private void Start()
     {
-        EventCenter.Boardcast<string>(EventType.SceneChangeUIFade, "fadeIn");
+        EventCenter.Boardcast<string>(MyEventType.SceneChangeUIFade, "fadeIn");
     }
     private void ChangeScene(string from, string to)
     {
@@ -25,7 +20,7 @@ public class TransitionManager : Singleton<TransitionManager>
     }
     private IEnumerator ChangeSceneIE(string from, string to)
     {
-        EventCenter.Boardcast<string>(EventType.SceneChangeUIFade, "fadeOut");
+        EventCenter.Boardcast<string>(MyEventType.SceneChangeUIFade, "fadeOut");
         yield return new WaitForSeconds(0.35f);
         yield return SceneManager.UnloadSceneAsync(from);
         // 未加载完时进行等待
@@ -35,6 +30,10 @@ public class TransitionManager : Singleton<TransitionManager>
         var newScene = SceneManager.GetSceneByName(to);
         SceneManager.SetActiveScene(newScene);
         yield return new WaitForSeconds(0.35f);
-        EventCenter.Boardcast<string>(EventType.SceneChangeUIFade, "fadeIn");
+        EventCenter.Boardcast<string>(MyEventType.SceneChangeUIFade, "fadeIn");
+    }
+    void OnDestroy()
+    {
+        EventCenter.RemoveListener<string, string>(MyEventType.ScenceChange, ChangeScene);
     }
 }

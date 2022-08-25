@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: UIAssets
+  m_EditorClassIdentifier: 
+  m_GroupName: UIAssets
+  m_Data:
+    m_SerializedData: []
+  m_GUID: a580fdfe65ae53b44a848e73995e8a13
+  m_SerializeEntries:
+  - m_GUID: 6776b7766757ffb4fb4fb55b277863ec
+    m_Address: FadeCanvas
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - UIAssets
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 2c91c38b8594ca248985ddf405f9eafb, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 02f770cb6410e0746ae8c2f42d7d29b7, type: 2}
+    - {fileID: 11400000, guid: c87ad3bc92fe83e4cadc4d2fcaa9311e, type: 2}
