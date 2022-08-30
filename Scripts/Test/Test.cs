@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using EventSystem;
@@ -9,7 +9,7 @@ public class Test : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.X))
         {
-            EventCenter.Boardcast<AudioSourceType, string, bool, float> (MyEventType.PlaySound, AudioSourceType.BackGround, "OpenRoad", true, 0.5f);
+            EventCenter.Boardcast<AudioSourceType, string, bool, float>(MyEventType.PlaySound, AudioSourceType.BackGround, "OpenRoad", true, 0.5f);
         }
         if (Input.GetKeyDown(KeyCode.C))
         {

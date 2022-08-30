@@ -1,4 +1,4 @@
-using System.Collections;
+Ôªøusing System.Collections;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using UnityEngine;
@@ -7,15 +7,15 @@ using isoLand.Facades;
 
 namespace isoLand.Controller
 {
-    // MainController ¿‡À∆gamemanager
+    // MainController Á±ª‰ººgamemanager
     public class MainController
     {
         public void Ctor()
-        { 
+        {
         }
         //public async Task Init()
         //{
-        //    // ≥ı ºªØ
+        //    // ÂàùÂßãÂåñ
         //    GameAssets gameAssets = AllAssets.gameAssets;
         //    await gameAssets.LoadAllAssets();
         //}

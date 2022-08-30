@@ -1,4 +1,4 @@
-using System.Collections;
+锘縰sing System.Collections;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using UnityEngine;
@@ -23,7 +23,7 @@ namespace isoLand.Assets
         }
         async Task LoadUI()
         {
-            // 异步加载所有AA包列表里面的东西
+            // 寮傛鍔犺浇鎵�鏈堿A鍖呭垪琛ㄩ噷闈㈢殑涓滆タ
             AssetLabelReference labelReference = new AssetLabelReference();
             labelReference.labelString = "UIAssets";
             IList<GameObject> res = await Addressables.LoadAssetsAsync<GameObject>(labelReference, null).Task;
@@ -34,7 +34,7 @@ namespace isoLand.Assets
         }
         async Task LoadAudio()
         {
-            // 异步加载所有AA包列表里面的东西
+            // 寮傛鍔犺浇鎵�鏈堿A鍖呭垪琛ㄩ噷闈㈢殑涓滆タ
             AssetLabelReference labelReference = new AssetLabelReference();
             labelReference.labelString = "AudioAssets";
             IList<GameObject> res = await Addressables.LoadAssetsAsync<GameObject>(labelReference, null).Task;

@@ -1,27 +1,32 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using EventSystem;
 
-public class Teleport : MonoBehaviour
+namespace isoLand.Models
 {
-    [SerializeField] public int id;
-    [SerializeField] private string scenceFrom;
-    [SerializeField] private string scenceTo;
-    private void Awake()
+    public class Teleport : MonoBehaviour
     {
-        EventCenter.AddListener<int>(MyEventType.ClickTeleport, GetClicked);
-    }
-    private void OnDestroy()
-    {
-        EventCenter.RemoveListener<int>(MyEventType.ClickTeleport, GetClicked);
-    }
-    private void GetClicked(int clickedId)
-    {
-        // Í¨¹ı¹ã²¥ÊÂ¼ş´«µİ±»µã»÷¶ÔÏóµÄidÅĞ¶ÏÊÇ·ñÖ´ĞĞ×ÔÉí¡£
-        if (clickedId == id)
+        [SerializeField] public int id;
+        [SerializeField] private string scenceFrom;
+        [SerializeField] private string scenceTo;
+        private void Awake()
         {
-            EventCenter.Boardcast<string, string>(MyEventType.ScenceChange, scenceFrom, scenceTo);
+            EventCenter.AddListener<int>(MyEventType.ClickTeleport, GetClicked);
+        }
+        private void OnDestroy()
+        {
+            EventCenter.RemoveListener<int>(MyEventType.ClickTeleport, GetClicked);
+        }
+        private void GetClicked(int clickedId)
+        {
+            // é€šè¿‡å¹¿æ’­äº‹ä»¶ä¼ é€’è¢«ç‚¹å‡»å¯¹è±¡çš„idåˆ¤æ–­æ˜¯å¦æ‰§è¡Œè‡ªèº«ã€‚
+            if (clickedId == id)
+            {
+                EventCenter.Boardcast<string, string>(MyEventType.ScenceChange, scenceFrom, scenceTo);
+            }
         }
     }
 }
+
+

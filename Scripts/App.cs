@@ -1,4 +1,4 @@
-using System;
+Ôªøusing System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,31 +8,38 @@ using isoLand.Facades;
 using isoLand.Controller;
 using EventSystem;
 
-namespace isoLand.Main 
+namespace isoLand.Main
 {
     public class App : MonoBehaviour
     {
         bool isInit;
         MainController mainController;
         CursorController cursorController;
+        TransitionController transitionController;
+        AudioManager audioManager;
         void Awake()
         {
-
+            // --- ÂàùÂßãÂåñcontrollers ---
+            cursorController = new CursorController();
+            cursorController.Ctor();
+            transitionController = GetComponentInChildren<TransitionController>();
+            transitionController.Init();
+            InventoryController inventoryController = GetComponentInChildren<InventoryController>();
+            inventoryController.Init();
+            audioManager = GetComponentInChildren<AudioManager>();
+            audioManager.Init();
         }
         void Start()
         {
-            // ≥ı ºªØ Facades
-            //AllAssets.Ctor();
-            //AllManagers.Ctor();
-            // ≥ı ºªØ Controllers
-            cursorController = new CursorController();
-            cursorController.Ctor();
+            #region ‰∏çË¶ÅÁöÑ
+            // ÈÄöËøámaincontrollerÂä†ËΩΩAssets
             //audioController = new AudioController();
             //audioController.Ctor();
-            mainController = new MainController();
-            mainController.Ctor();
-            // Õ®π˝maincontrollerº”‘ÿAssets
+            //mainController = new MainController();
+            //mainController.Ctor();
+            #endregion
             EventCenter.Boardcast<string>(MyEventType.SceneChangeUIFade, "fadeIn");
+            //EventCenter.Boardcast<AudioSourceType, string, bool, float>(MyEventType.PlaySound, AudioSourceType.BackGround, "OpenRoad", true, 0.5f);
         }
         void Update()
         {

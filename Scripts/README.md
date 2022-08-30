@@ -19,4 +19,4 @@ Facades => 用于存储各种Allxxx。（弃用）
 ## TODO 
 研究如何减少拖拽绑定 AA包  
 如果通过gameassets 注入资源 会生成public类给controller使用， 会让其他类也可以使用。（？）  
-
+通过事件已经解决了单例的问题（？）

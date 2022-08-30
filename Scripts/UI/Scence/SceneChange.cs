@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using EventSystem;
@@ -9,7 +9,7 @@ public class SceneChange : MonoBehaviour
     [SerializeField] private float duration;
     private void Awake()
     {
-        
+
         EventCenter.AddListener<string>(MyEventType.SceneChangeUIFade, Fade);
     }
     private void OnDestroy()

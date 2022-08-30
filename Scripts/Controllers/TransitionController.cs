@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -8,7 +8,7 @@ namespace isoLand.Controller
 {
     public class TransitionController : MonoBehaviour
     {
-        void Awake()
+        public void Init()
         {
             EventCenter.AddListener<string, string>(MyEventType.ScenceChange, ChangeScene);
         }
@@ -21,7 +21,7 @@ namespace isoLand.Controller
             EventCenter.Boardcast<string>(MyEventType.SceneChangeUIFade, "fadeOut");
             yield return new WaitForSeconds(0.35f);
             yield return SceneManager.UnloadSceneAsync(from);
-            // Î´¼ÓÔØÍêÊ±½øÐÐµÈ´ý
+            // æœªåŠ è½½å®Œæ—¶è¿›è¡Œç­‰å¾…
             yield return SceneManager.LoadSceneAsync(to, LoadSceneMode.Additive);
             //var loadOver = SceneManager.LoadSceneAsync(to, LoadSceneMode.Additive);
             //while (loadOver.isDone) yield return null;

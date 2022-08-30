@@ -1,4 +1,4 @@
-using System;
+ï»¿using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,7 +8,7 @@ namespace EventSystem
     public class EventCenter
     {
         private static Dictionary<MyEventType, Delegate> eventDic = new Dictionary<MyEventType, Delegate>();
-        #region Í¨ÓÃ²¿·Ö + Å×Òì³£
+        #region é€šç”¨éƒ¨åˆ† + æŠ›å¼‚å¸¸
         private static void OnListenerAdding(MyEventType eventType, Delegate callBack)
         {
             if (!eventDic.ContainsKey(eventType))
@@ -18,7 +18,7 @@ namespace EventSystem
             Delegate d = eventDic[eventType];
             if (d != null && d.GetType() != callBack.GetType())
             {
-                throw new Exception(string.Format("³¢ÊÔÎªÊÂ¼ş{0}Ìí¼Ó²»Í¬ÀàĞÍµÄÎ¯ÍĞ£¬µ±Ç°ÊÂ¼şËù¶ÔÓ¦µÄÎ¯ÍĞÊÇ{1}£¬ÒªÌí¼ÓµÄÎ¯ÍĞÀàĞÍÎª{2}", eventType, d.GetType(), callBack.GetType()));
+                throw new Exception(string.Format("å°è¯•ä¸ºäº‹ä»¶{0}æ·»åŠ ä¸åŒç±»å‹çš„å§”æ‰˜ï¼Œå½“å‰äº‹ä»¶æ‰€å¯¹åº”çš„å§”æ‰˜æ˜¯{1}ï¼Œè¦æ·»åŠ çš„å§”æ‰˜ç±»å‹ä¸º{2}", eventType, d.GetType(), callBack.GetType()));
             }
         }
         private static void OnListenerRemoving(MyEventType eventType, Delegate callBack)
@@ -28,20 +28,20 @@ namespace EventSystem
                 Delegate d = eventDic[eventType];
                 if (d == null)
                 {
-                    throw new Exception(String.Format("¸ÃÊÂ¼şÂëÏÂÃ»ÓĞÊÂ¼ş", eventType));
+                    throw new Exception(String.Format("è¯¥äº‹ä»¶ç ä¸‹æ²¡æœ‰äº‹ä»¶", eventType));
                 }
                 if (d != null && d.GetType() != callBack.GetType())
                 {
-                    throw new Exception(String.Format("³¢ÊÔÎªÊÂ¼ş{0}ÒÆ³ı²»Í¬ÀàĞÍµÄÎ¯ÍĞ£¬µ±Ç°ÊÂ¼şËù¶ÔÓ¦µÄÎ¯ÍĞÊÇ{1}£¬ÒªÌí¼ÓµÄÎ¯ÍĞÀàĞÍÎª{2}", eventType, d.GetType(), callBack.GetType()));
+                    throw new Exception(String.Format("å°è¯•ä¸ºäº‹ä»¶{0}ç§»é™¤ä¸åŒç±»å‹çš„å§”æ‰˜ï¼Œå½“å‰äº‹ä»¶æ‰€å¯¹åº”çš„å§”æ‰˜æ˜¯{1}ï¼Œè¦æ·»åŠ çš„å§”æ‰˜ç±»å‹ä¸º{2}", eventType, d.GetType(), callBack.GetType()));
                 }
             }
             else
             {
-                throw new Exception(String.Format("Ã»ÓĞÊÂ¼şÂë{0}", eventType));
+                throw new Exception(String.Format("æ²¡æœ‰äº‹ä»¶ç {0}", eventType));
             }
         }
         #endregion
-        #region ÎŞ²ÎÊıÊÂ¼ş
+        #region æ— å‚æ•°äº‹ä»¶
         public static void AddListener(MyEventType eventType, CallBack callBack)
         {
             OnListenerAdding(eventType, callBack);
@@ -60,7 +60,7 @@ namespace EventSystem
                 CallBack callback = d as CallBack;
                 if (callback == null)
                 {
-                    throw new Exception(String.Format("¹ã²¥ÊÂ¼ş´íÎó£¬ÊÂ¼ş{0}¾ßÓĞ²»Í¬µÄÎ¯ÍĞÀàĞÍ", eventType));
+                    throw new Exception(String.Format("å¹¿æ’­äº‹ä»¶é”™è¯¯ï¼Œäº‹ä»¶{0}å…·æœ‰ä¸åŒçš„å§”æ‰˜ç±»å‹", eventType));
                 }
                 else
                 {
@@ -69,7 +69,7 @@ namespace EventSystem
             }
         }
         #endregion
-        #region Ò»¸ö²ÎÊı
+        #region ä¸€ä¸ªå‚æ•°
         public static void AddListener<T>(MyEventType eventType, CallBack<T> callBack)
         {
             OnListenerAdding(eventType, callBack);
@@ -88,7 +88,7 @@ namespace EventSystem
                 CallBack<T> callback = d as CallBack<T>;
                 if (callback == null)
                 {
-                    throw new Exception(String.Format("¹ã²¥ÊÂ¼ş´íÎó£¬ÊÂ¼ş{0}¾ßÓĞ²»Í¬µÄÎ¯ÍĞÀàĞÍ", eventType));
+                    throw new Exception(String.Format("å¹¿æ’­äº‹ä»¶é”™è¯¯ï¼Œäº‹ä»¶{0}å…·æœ‰ä¸åŒçš„å§”æ‰˜ç±»å‹", eventType));
                 }
                 else
                 {
@@ -97,7 +97,7 @@ namespace EventSystem
             }
         }
         #endregion
-        #region Á½¸ö²ÎÊı
+        #region ä¸¤ä¸ªå‚æ•°
         public static void AddListener<T, X>(MyEventType eventType, CallBack<T, X> callBack)
         {
             OnListenerAdding(eventType, callBack);
@@ -116,7 +116,7 @@ namespace EventSystem
                 CallBack<T, X> callback = d as CallBack<T, X>;
                 if (callback == null)
                 {
-                    throw new Exception(String.Format("¹ã²¥ÊÂ¼ş´íÎó£¬ÊÂ¼ş{0}¾ßÓĞ²»Í¬µÄÎ¯ÍĞÀàĞÍ", eventType));
+                    throw new Exception(String.Format("å¹¿æ’­äº‹ä»¶é”™è¯¯ï¼Œäº‹ä»¶{0}å…·æœ‰ä¸åŒçš„å§”æ‰˜ç±»å‹", eventType));
                 }
                 else
                 {
@@ -125,7 +125,7 @@ namespace EventSystem
             }
         }
         #endregion
-        #region Èı¸ö²ÎÊı
+        #region ä¸‰ä¸ªå‚æ•°
         public static void AddListener<T, X, Y>(MyEventType eventType, CallBack<T, X, Y> callBack)
         {
             OnListenerAdding(eventType, callBack);
@@ -144,7 +144,7 @@ namespace EventSystem
                 CallBack<T, X, Y> callback = d as CallBack<T, X, Y>;
                 if (callback == null)
                 {
-                    throw new Exception(String.Format("¹ã²¥ÊÂ¼ş´íÎó£¬ÊÂ¼ş{0}¾ßÓĞ²»Í¬µÄÎ¯ÍĞÀàĞÍ", eventType));
+                    throw new Exception(String.Format("å¹¿æ’­äº‹ä»¶é”™è¯¯ï¼Œäº‹ä»¶{0}å…·æœ‰ä¸åŒçš„å§”æ‰˜ç±»å‹", eventType));
                 }
                 else
                 {
@@ -153,7 +153,7 @@ namespace EventSystem
             }
         }
         #endregion
-        #region ËÄ¸ö²ÎÊı
+        #region å››ä¸ªå‚æ•°
         public static void AddListener<T, X, Y, Z>(MyEventType eventType, CallBack<T, X, Y, Z> callBack)
         {
             OnListenerAdding(eventType, callBack);
@@ -172,7 +172,7 @@ namespace EventSystem
                 CallBack<T, X, Y, Z> callback = d as CallBack<T, X, Y, Z>;
                 if (callback == null)
                 {
-                    throw new Exception(String.Format("¹ã²¥ÊÂ¼ş´íÎó£¬ÊÂ¼ş{0}¾ßÓĞ²»Í¬µÄÎ¯ÍĞÀàĞÍ", eventType));
+                    throw new Exception(String.Format("å¹¿æ’­äº‹ä»¶é”™è¯¯ï¼Œäº‹ä»¶{0}å…·æœ‰ä¸åŒçš„å§”æ‰˜ç±»å‹", eventType));
                 }
                 else
                 {
@@ -181,7 +181,7 @@ namespace EventSystem
             }
         }
         #endregion
-        #region Îå¸ö²ÎÊı
+        #region äº”ä¸ªå‚æ•°
         public static void AddListener<T, X, Y, Z, W>(MyEventType eventType, CallBack<T, X, Y, Z, W> callBack)
         {
             OnListenerAdding(eventType, callBack);
@@ -200,7 +200,7 @@ namespace EventSystem
                 CallBack<T, X, Y, Z, W> callback = d as CallBack<T, X, Y, Z, W>;
                 if (callback == null)
                 {
-                    throw new Exception(String.Format("¹ã²¥ÊÂ¼ş´íÎó£¬ÊÂ¼ş{0}¾ßÓĞ²»Í¬µÄÎ¯ÍĞÀàĞÍ", eventType));
+                    throw new Exception(String.Format("å¹¿æ’­äº‹ä»¶é”™è¯¯ï¼Œäº‹ä»¶{0}å…·æœ‰ä¸åŒçš„å§”æ‰˜ç±»å‹", eventType));
                 }
                 else
                 {

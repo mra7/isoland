@@ -1,4 +1,4 @@
-using System.Collections;
+锘縰sing System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using EventSystem;
@@ -21,6 +21,7 @@ namespace isoLand.Controller
             {
                 if (GetObjAtMoustPosition() != null)
                 {
+                    //Debug.Log(GetObjAtMoustPosition().gameObject.name);
                     OnClicked(GetObjAtMoustPosition().gameObject);
                 }
                 else if (GetObjAtMoustPosition() == null)
@@ -30,12 +31,17 @@ namespace isoLand.Controller
 
             }
         }
-        // 获取鼠标位置
+        // 鑾峰彇榧犳爣浣嶇疆
         private void GetMousePosition()
         {
             mousePosition = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0));
         }
-        // 鼠标点击事件
+        // 鑾峰彇鐐瑰嚮浣嶇疆鐗╁搧
+        private Collider2D GetObjAtMoustPosition()
+        {
+            return Physics2D.OverlapPoint(mousePosition);
+        }
+        // 榧犳爣鐐瑰嚮浜嬩欢
         private void OnClicked(GameObject clickedObj)
         {
             if (clickedObj != null)
@@ -51,10 +57,6 @@ namespace isoLand.Controller
                 }
             }
 
-        }
-        private Collider2D GetObjAtMoustPosition()
-        {
-            return Physics2D.OverlapPoint(mousePosition);
         }
     }
 }

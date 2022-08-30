@@ -1,4 +1,4 @@
-using System;
+Ôªøusing System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,16 +11,19 @@ namespace isoLand.Manager
     {
         [SerializeField] private AudioSource bgMusicSource;
         [SerializeField] private AudioSource SFXSource;
-        [Header("±≥æ∞“Ù¿÷")]
+        [Header("ËÉåÊôØÈü≥‰πê")]
         [SerializeField] private AudioClip[] bgMusicClips;
-        [Header("Ãÿ–ß“Ù¿÷")]
+        [Header("ÁâπÊïàÈü≥‰πê")]
         [SerializeField] private AudioClip[] SFXMusicClips;
-        public void Awake()
+        public void Init()
         {
             EventCenter.AddListener<AudioSourceType, string, bool, float>(MyEventType.PlaySound, PlaySound);
             EventCenter.AddListener<AudioSourceType>(MyEventType.StopSound, StopSound);
             EventCenter.AddListener<AudioSourceType>(MyEventType.PauseSound, PauseSound);
             EventCenter.AddListener<AudioSourceType, float>(MyEventType.SetVolum, SetVolum);
+            bgMusicSource = gameObject.AddComponent<AudioSource>();
+            SFXSource = gameObject.AddComponent<AudioSource>();
+            bgMusicSource.clip = bgMusicClips[1];
         }
         void OnDestroy()
         {
@@ -28,13 +31,6 @@ namespace isoLand.Manager
             EventCenter.RemoveListener<AudioSourceType>(MyEventType.StopSound, StopSound);
             EventCenter.RemoveListener<AudioSourceType>(MyEventType.PauseSound, PauseSound);
             EventCenter.RemoveListener<AudioSourceType, float>(MyEventType.SetVolum, SetVolum);
-        }
-        void Start()
-        {
-            bgMusicSource = gameObject.AddComponent<AudioSource>();
-            SFXSource = gameObject.AddComponent<AudioSource>();
-            bgMusicSource.clip = bgMusicClips[1];
-            //bgMusicSource.Play();
         }
         private void PlaySound(AudioSourceType type, string audioName, bool loop, float delayTime)
         {
@@ -52,7 +48,7 @@ namespace isoLand.Manager
                         }
                         else
                         {
-                            throw new Exception(string.Format("√ª”–∏√“Ù∆µ£∫{0}", item.name));
+                            throw new Exception(string.Format("Ê≤°ÊúâËØ•Èü≥È¢ëÔºö{0}", item.name));
                         }
                     }
 
@@ -69,7 +65,7 @@ namespace isoLand.Manager
                         }
                         else
                         {
-                            throw new Exception(string.Format("√ª”–∏√“Ù∆µ£∫{0}", item.name));
+                            throw new Exception(string.Format("Ê≤°ÊúâËØ•Èü≥È¢ëÔºö{0}", item.name));
                         }
                     }
                     break;
