@@ -10,6 +10,7 @@
         // UI事件
         ScenceChange,
         SceneChangeUIFade,
+        InventoryUIUpdate,
         // 音频事件
         Audio,
         PlaySound,

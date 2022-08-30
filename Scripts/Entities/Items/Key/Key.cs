@@ -12,7 +12,7 @@ namespace isoLand.Models
             if (id == itemId)
             {
                 //gameObject.SetActive(false);
-                EventCenter.Boardcast<ItemName>(MyEventType.AddItem, itemName);
+                EventCenter.Boardcast<ItemName>(MyEventType.AddItem, ItemName.Key);
                 DestroyImmediate(gameObject);
             }
         }
