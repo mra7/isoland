@@ -18,9 +18,13 @@ namespace isoLand.Controller
         }
         private IEnumerator ChangeSceneIE(string from, string to)
         {
-            EventCenter.Boardcast<string>(MyEventType.SceneChangeUIFade, "fadeOut");
-            yield return new WaitForSeconds(0.35f);
-            yield return SceneManager.UnloadSceneAsync(from);
+            if (from != string.Empty)
+            {
+                EventCenter.Boardcast(MyEventType.BeforeScenceChange);
+                EventCenter.Boardcast<string>(MyEventType.SceneChangeUIFade, "fadeOut");
+                yield return new WaitForSeconds(0.35f);
+                yield return SceneManager.UnloadSceneAsync(from);
+            }
             // 未加载完时进行等待
             yield return SceneManager.LoadSceneAsync(to, LoadSceneMode.Additive);
             //var loadOver = SceneManager.LoadSceneAsync(to, LoadSceneMode.Additive);
@@ -28,6 +32,7 @@ namespace isoLand.Controller
             var newScene = SceneManager.GetSceneByName(to);
             SceneManager.SetActiveScene(newScene);
             yield return new WaitForSeconds(0.35f);
+            EventCenter.Boardcast(MyEventType.AfterScenceChange);
             EventCenter.Boardcast<string>(MyEventType.SceneChangeUIFade, "fadeIn");
         }
         void OnDestroy()

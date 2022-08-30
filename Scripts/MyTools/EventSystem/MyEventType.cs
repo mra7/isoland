@@ -7,8 +7,11 @@
         MouseClicked,
         ClickTeleport,
         ClickItem,
-        // UI事件
+        // 场景切换
         ScenceChange,
+        BeforeScenceChange,
+        AfterScenceChange,
+        // UI事件
         SceneChangeUIFade,
         InventoryUIUpdate,
         // 音频事件
@@ -18,6 +21,8 @@
         PauseSound,
         SetVolum,
         // 背包事件
-        AddItem
+        AddItem,
+        // 互动事件
+        ChangeItemAvailable
     }
 }

@@ -9,7 +9,8 @@ public class Test : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.X))
         {
-            EventCenter.Boardcast<AudioSourceType, string, bool, float>(MyEventType.PlaySound, AudioSourceType.BackGround, "OpenRoad", true, 0.5f);
+            //EventCenter.Boardcast<AudioSourceType, string, bool, float>(MyEventType.PlaySound, AudioSourceType.BackGround, "OpenRoad", true, 0.5f);
+            EventCenter.Boardcast(MyEventType.AfterScenceChange);
         }
         if (Input.GetKeyDown(KeyCode.C))
         {

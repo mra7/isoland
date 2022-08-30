@@ -7,21 +7,25 @@ namespace isoLand.Models
 {
     public class Teleport : MonoBehaviour
     {
-        [SerializeField] public int id;
+        [SerializeField] public string teleportId;
         [SerializeField] private string scenceFrom;
         [SerializeField] private string scenceTo;
         private void Awake()
         {
-            EventCenter.AddListener<int>(MyEventType.ClickTeleport, GetClicked);
+            EventCenter.AddListener<string>(MyEventType.ClickTeleport, GetClicked);
         }
         private void OnDestroy()
         {
-            EventCenter.RemoveListener<int>(MyEventType.ClickTeleport, GetClicked);
+            EventCenter.RemoveListener<string>(MyEventType.ClickTeleport, GetClicked);
         }
-        private void GetClicked(int clickedId)
+        private void Start()
+        {
+            teleportId = System.Guid.NewGuid().ToString();
+        }
+        private void GetClicked(string clickedId)
         {
             // 通过广播事件传递被点击对象的id判断是否执行自身。
-            if (clickedId == id)
+            if (teleportId == clickedId)
             {
                 EventCenter.Boardcast<string, string>(MyEventType.ScenceChange, scenceFrom, scenceTo);
             }

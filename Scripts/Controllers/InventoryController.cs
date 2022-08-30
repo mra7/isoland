@@ -22,6 +22,7 @@ public class InventoryController : MonoBehaviour
         {
             itemList.Add(itemName);
             EventCenter.Boardcast<ItemDetails, int>(MyEventType.InventoryUIUpdate, itemData.GetItemDetails(itemName), itemList.Count - 1);
+            EventCenter.Boardcast<ItemName, bool>(MyEventType.ChangeItemAvailable, itemName, false);
         }
     }
 }

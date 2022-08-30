@@ -13,6 +13,7 @@ namespace isoLand.Main
     public class App : MonoBehaviour
     {
         bool isInit;
+        [SerializeField] public string startScene;
         MainController mainController;
         CursorController cursorController;
         TransitionController transitionController;
@@ -38,7 +39,7 @@ namespace isoLand.Main
             //mainController = new MainController();
             //mainController.Ctor();
             #endregion
-            EventCenter.Boardcast<string>(MyEventType.SceneChangeUIFade, "fadeIn");
+            EventCenter.Boardcast<string, string>(MyEventType.ScenceChange, string.Empty, startScene);
             //EventCenter.Boardcast<AudioSourceType, string, bool, float>(MyEventType.PlaySound, AudioSourceType.BackGround, "OpenRoad", true, 0.5f);
         }
         void Update()

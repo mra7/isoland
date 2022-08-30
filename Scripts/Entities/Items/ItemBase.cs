@@ -8,7 +8,7 @@ namespace isoLand.Models
     public class ItemBase : MonoBehaviour
     {
         [SerializeField] public string itemId;
-        [SerializeField] protected ItemName itemName;
+        [SerializeField] public ItemName itemName;
         protected void Awake()
         {
             EventCenter.AddListener<string>(MyEventType.ClickItem, GetClicked);

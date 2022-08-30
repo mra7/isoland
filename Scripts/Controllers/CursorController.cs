@@ -49,7 +49,7 @@ namespace isoLand.Controller
                 switch (clickedObj.tag)
                 {
                     case "Teleport":
-                        EventCenter.Boardcast<int>(MyEventType.ClickTeleport, clickedObj.GetComponent<Teleport>().id);
+                        EventCenter.Boardcast<string>(MyEventType.ClickTeleport, clickedObj.GetComponent<Teleport>().teleportId);
                         break;
                     case "Item":
                         EventCenter.Boardcast<string>(MyEventType.ClickItem, clickedObj.GetComponent<ItemBase>().itemId);
