@@ -23,6 +23,9 @@
         // 背包事件
         AddItem,
         // 互动事件
-        ChangeItemAvailable
+        ChangeItemAvailable,
+        ClickInteractive,
+        HoldSomething,
+        NoHold,
     }
 }

@@ -22,7 +22,7 @@ namespace isoLand.Main
         {
             // --- 初始化controllers ---
             cursorController = new CursorController();
-            cursorController.Ctor();
+            cursorController.Init();
             transitionController = GetComponentInChildren<TransitionController>();
             transitionController.Init();
             InventoryController inventoryController = GetComponentInChildren<InventoryController>();
@@ -46,6 +46,9 @@ namespace isoLand.Main
         {
             //if (!isInit) return;
             cursorController.Tick();
+        }
+        private void OnDestroy() {
+            cursorController.Destroy();
         }
     }
 }
